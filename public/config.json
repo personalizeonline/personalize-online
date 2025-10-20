@@ -1,0 +1,11 @@
+{
+  "brand": "Personalize Online",
+  "siteUrl": "https://personalize-online.com",
+  "supportEmail": "support@personalize-online.com",
+  "plausibleDomain": "personalize-online.com",
+  "checkout": {
+    "subscription": "https://checkout.stripe.com/your-subscription-link-here",
+    "onetime": "https://checkout.stripe.com/your-onetime-link-here"
+  }
+}
+

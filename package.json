@@ -1,0 +1,30 @@
+{
+  "name": "personalize-online",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node -e \"require('child_process').spawn('next',['dev','-p',process.env.PORT||'3000'],{stdio:'inherit'})\"",
+    "dev:clean": "rm -rf .next && npm run dev",
+    "build": "next build",
+    "build:clean": "rm -rf .next && npm run build",
+    "start": "node -e \"require('child_process').spawn('next',['start','-p',process.env.PORT||'3000'],{stdio:'inherit'})\"",
+    "lint": "next lint",
+    "clean": "rm -rf .next node_modules/.cache"
+  },
+  "dependencies": {
+    "express-rate-limit": "^8.1.0",
+    "next": "14.2.33",
+    "razorpay": "^2.9.6",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "stripe": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.30",
+    "@types/react": "18.2.48",
+    "@types/react-dom": "18.2.19",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.33",
+    "typescript": "5.4.5"
+  }
+}

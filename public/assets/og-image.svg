@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0" stop-color="#0b1021"/>
+      <stop offset="1" stop-color="#1c2352"/>
+    </linearGradient>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#5967ff"/>
+      <stop offset="1" stop-color="#7c8cff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g transform="translate(100,120)">
+    <text x="0" y="0" font-family="Inter, Arial, sans-serif" font-size="64" fill="#eef2ff">Personalized “Prayer” Song</text>
+    <text x="0" y="72" font-family="Inter, Arial, sans-serif" font-size="28" fill="#b8c0ff">A gentle companion for your daily life</text>
+  </g>
+  <g transform="translate(100,320)">
+    <rect x="0" y="0" width="480" height="120" rx="16" fill="#0f1430" stroke="#4450cc"/>
+    <circle cx="60" cy="60" r="18" fill="url(#g)"/>
+    <rect x="100" y="30" width="320" height="16" rx="8" fill="#7c8cff" opacity=".6"/>
+    <rect x="100" y="60" width="220" height="16" rx="8" fill="#7c8cff" opacity=".35"/>
+  </g>
+  <text x="100" y="500" font-family="Inter, Arial, sans-serif" font-size="20" fill="#9aa3c7">Download on Premium • No ads</text>
+</svg>
+
