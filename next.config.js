@@ -5,6 +5,14 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
 
+  // Speed up builds (warnings are caught in dev mode)
+  eslint: {
+    ignoreDuringBuilds: true, // Skip ESLint during production builds
+  },
+  typescript: {
+    ignoreBuildErrors: false, // Keep TypeScript checks for safety
+  },
+
   // Fix hot reload in WSL/Docker environments
   webpack: (config, { dev }) => {
     if (dev) {
