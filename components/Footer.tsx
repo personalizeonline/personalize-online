@@ -65,6 +65,7 @@ export function Footer() {
           </div>
           <div className="footer-copyright">
             <p>© {year} Personalize Online. All rights reserved. Made with ♥ for your peace.</p>
+            <p className="footer-entity">A brand of PROSPERA ENTERPRISES</p>
           </div>
         </div>
       </div>

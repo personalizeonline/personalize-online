@@ -1,4 +1,44 @@
+'use client';
+
+import { useCurrency } from '@/lib/useCurrency';
+import { useEffect, useState } from 'react';
+
 export function Pricing(){
+  const { currency, formatPrice, convertPrice, isLoading } = useCurrency();
+  const [prices, setPrices] = useState({
+    single: 7.99,
+    bundle: 6.49,
+    seasonal: 9.99,
+    bundleTotal: 32.45
+  });
+
+  useEffect(() => {
+    // Convert prices when currency is detected
+    const updatePrices = async () => {
+      if (!isLoading && currency.code !== 'USD') {
+        const single = await convertPrice(7.99);
+        const bundle = await convertPrice(6.49);
+        const seasonal = await convertPrice(9.99);
+        const bundleTotal = await convertPrice(32.45);
+
+        setPrices({
+          single,
+          bundle,
+          seasonal,
+          bundleTotal
+        });
+      }
+    };
+
+    updatePrices();
+  }, [currency, isLoading, convertPrice]);
+
+  // Calculate INR for display
+  const getINRPrice = (usdAmount: number) => {
+    const inrAmount = (usdAmount * 83.5).toFixed(0);
+    return `₹${inrAmount}`;
+  };
+
   return (
     <section id="pricing" className="section pricing">
       <div className="container">
@@ -14,9 +54,14 @@ export function Pricing(){
             <div className="card-icon">🎵</div>
             <h3 className="card-title">Single Song</h3>
             <div className="card-price">
-              <span className="price-amount">$7.99</span>
+              <span className="price-amount">
+                {isLoading ? '$7.99' : formatPrice(prices.single)}
+              </span>
               <span className="price-label">per song</span>
             </div>
+            {currency.code !== 'INR' && (
+              <div className="price-note">Charges in {getINRPrice(7.99)} INR</div>
+            )}
             <ul className="card-features">
               <li>✓ Personalized with any name</li>
               <li>✓ Professional quality MP3</li>
@@ -39,10 +84,17 @@ export function Pricing(){
             <div className="card-icon">🎁</div>
             <h3 className="card-title">Song Bundle</h3>
             <div className="card-price">
-              <span className="price-amount">$6.49</span>
+              <span className="price-amount">
+                {isLoading ? '$6.49' : formatPrice(prices.bundle)}
+              </span>
               <span className="price-label">per song</span>
             </div>
-            <div className="savings-tag">Save $7.50 when you buy 5!</div>
+            <div className="savings-tag">
+              Save {isLoading ? '$7.50' : formatPrice(prices.single * 5 - prices.bundleTotal)} when you buy 5!
+            </div>
+            {currency.code !== 'INR' && (
+              <div className="price-note">Charges in {getINRPrice(32.45)} INR</div>
+            )}
             <ul className="card-features">
               <li>✓ <strong>5 personalized songs</strong></li>
               <li>✓ Perfect for the whole family</li>
@@ -51,7 +103,7 @@ export function Pricing(){
               <li>✓ Great for gifting</li>
             </ul>
             <a href="#create" className="btn-pricing btn-featured">
-              Get Bundle – $32.45
+              Get Bundle – {isLoading ? '$32.45' : formatPrice(prices.bundleTotal)}
             </a>
             <div className="trust-badges">
               <span className="trust-item">🔒 Secure Checkout</span>
@@ -64,9 +116,14 @@ export function Pricing(){
             <div className="card-icon">🎄</div>
             <h3 className="card-title">Seasonal Songs</h3>
             <div className="card-price">
-              <span className="price-amount">$9.99+</span>
+              <span className="price-amount">
+                {isLoading ? '$9.99+' : `${formatPrice(prices.seasonal)}+`}
+              </span>
               <span className="price-label">varies by season</span>
             </div>
+            {currency.code !== 'INR' && (
+              <div className="price-note">From {getINRPrice(9.99)} INR</div>
+            )}
             <ul className="card-features">
               <li>✓ Holiday & seasonal themes</li>
               <li>✓ Limited-time special categories</li>
@@ -93,7 +150,14 @@ export function Pricing(){
         </div>
 
         <div className="pricing-note">
-          <p>All prices in USD. Secure payment processing powered by Stripe. No subscriptions or recurring charges.</p>
+          <p>
+            {currency.code === 'INR' ? (
+              'All prices in INR. '
+            ) : (
+              `Prices shown in ${currency.name}. All payments processed in INR. `
+            )}
+            Secure payment processing powered by Razorpay. No subscriptions or recurring charges.
+          </p>
         </div>
       </div>
 
@@ -199,6 +263,13 @@ export function Pricing(){
           color: #888;
           display: block;
           margin-top: 4px;
+        }
+
+        .price-note {
+          font-size: 0.85rem;
+          color: #7c8471;
+          margin-top: 8px;
+          font-weight: 500;
         }
 
         .savings-tag {

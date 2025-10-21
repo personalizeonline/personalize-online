@@ -33,7 +33,7 @@ export default function TermsPage(){
               <div className="legal-section">
                 <h2>The Deal</h2>
                 <p>
-                  By using Personalize Online, you're agreeing to these terms. If you don't agree with something here, unfortunately you can't use our service. We know legal stuff is boring, but we tried to make this as readable as possible.
+                  By using Personalize Online (operated by PROSPERA ENTERPRISES), you're agreeing to these terms. If you don't agree with something here, unfortunately you can't use our service. We know legal stuff is boring, but we tried to make this as readable as possible.
                 </p>
               </div>
 
@@ -84,7 +84,7 @@ export default function TermsPage(){
                 <h2>How We Make Your Songs</h2>
                 <h3>The Creation Process</h3>
                 <p>
-                  We use AI technology to generate custom songs with the name you provide woven naturally into the lyrics.
+                  We create custom songs with the name you provide woven naturally into the lyrics.
                   We aim for quality, but hey—results can vary based on the name and category you choose.
                 </p>
 
@@ -211,6 +211,8 @@ export default function TermsPage(){
                   For any questions about these Terms of Service, please contact us:
                 </p>
                 <ul>
+                  <li><strong>Business Name:</strong> PROSPERA ENTERPRISES</li>
+                  <li><strong>Brand:</strong> Personalize Online</li>
                   <li>Email: <a id="support-link" href={`mailto:${supportEmail}`}>{supportEmail}</a></li>
                   <li>Website: personalize-online.com</li>
                 </ul>

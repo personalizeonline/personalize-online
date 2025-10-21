@@ -5167,7 +5167,7 @@ export function SeasonalHero({ category }: SeasonalHeroProps) {
 
               {/* Features */}
               <div className="thanksgiving-features">
-                <span className="feature-item-t"><span className="feature-icon-t">🎼</span> Unique AI-composed melody</span>
+                <span className="feature-item-t"><span className="feature-icon-t">🎼</span> Unique custom melody</span>
                 <span className="feature-divider-t">•</span>
                 <span className="feature-item-t"><span className="feature-icon-t">🎤</span> Professional vocals</span>
                 <span className="feature-divider-t">•</span>

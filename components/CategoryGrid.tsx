@@ -1,5 +1,7 @@
 "use client";
 import { Category } from '@/lib/categories';
+import { useCurrency } from '@/lib/useCurrency';
+import { useEffect, useState } from 'react';
 
 interface CategoryGridProps {
   categories: Category[];
@@ -13,6 +15,21 @@ const FEATURED_CATEGORIES = {
 };
 
 export function CategoryGrid({ categories }: CategoryGridProps) {
+  const { currency, formatPrice, convertPrice, isLoading } = useCurrency();
+  const [convertedPrices, setConvertedPrices] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    const updatePrices = async () => {
+      if (!isLoading && currency.code !== 'USD') {
+        const prices: Record<string, number> = {};
+        for (const category of categories) {
+          prices[category.slug] = await convertPrice(category.price);
+        }
+        setConvertedPrices(prices);
+      }
+    };
+    updatePrices();
+  }, [categories, currency, isLoading, convertPrice]);
   return (
     <section className="category-grid-section">
       <div className="container">
@@ -67,7 +84,11 @@ export function CategoryGrid({ categories }: CategoryGridProps) {
                   <div className="card-footer">
                     <div className="category-price">
                       <span className="price-label">Starting at</span>
-                      <span className="price-amount">${category.price}</span>
+                      <span className="price-amount">
+                        {isLoading || !convertedPrices[category.slug]
+                          ? `$${category.price}`
+                          : formatPrice(convertedPrices[category.slug])}
+                      </span>
                     </div>
 
                     <div className="category-cta">

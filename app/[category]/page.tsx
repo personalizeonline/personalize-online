@@ -5,6 +5,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Consent } from '@/components/Consent';
 import { SongCreationForm } from '@/components/SongCreationForm';
+import { PriceDisplay } from '@/components/PriceDisplay';
 import {
   getCategoryBySlug,
   isCategoryActive,
@@ -701,7 +702,7 @@ export default function CategoryPage() {
               <div className="step-item">
                 <div className="step-number">2</div>
                 <div className="step-icon">💳</div>
-                <h3>Pay the $7.99</h3>
+                <h3>Pay the <PriceDisplay usdAmount={7.99} /></h3>
                 <p>Secure checkout. Stripe handles it. Takes 30 seconds.</p>
               </div>
 

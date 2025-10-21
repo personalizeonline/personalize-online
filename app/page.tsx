@@ -10,6 +10,7 @@ import { SeasonalHero } from '@/components/SeasonalHero';
 import { CategoryGrid } from '@/components/CategoryGrid';
 import { SeasonalSpotlight } from '@/components/SeasonalSpotlight';
 import Seo from '@/components/Seo';
+import { PriceDisplay } from '@/components/PriceDisplay';
 import {
   getHeroSeasonalCategory,
   getSecondarySeasonalCategories,
@@ -164,7 +165,7 @@ export default function HomePage(){
                 <div className="step-info">
                   <span className="step-label">Step 2</span>
                   <h3>Add the Name</h3>
-                  <p>Type any name. Our AI weaves it beautifully into the lyrics.</p>
+                  <p>Type any name. We weave it beautifully into the lyrics.</p>
                 </div>
               </div>
 
@@ -235,7 +236,7 @@ export default function HomePage(){
                     </svg>
                   </div>
                   <h4>Studio Quality</h4>
-                  <p>Real instruments, professional vocals, AI-crafted lyrics that flow naturally.</p>
+                  <p>Real instruments, professional vocals, custom-crafted lyrics that flow naturally.</p>
                 </div>
 
                 <div className="feature-card-natural">
@@ -294,7 +295,7 @@ export default function HomePage(){
                 <span className="cta-eyebrow">12,847+ Songs Created</span>
                 <h2>Ready to create yours?</h2>
                 <p>
-                  $7.99. Two minutes. One unforgettable song.<br/>
+                  <PriceDisplay usdAmount={7.99} />. Two minutes. One unforgettable song.<br/>
                   For your mom, your partner, your friend—or yourself.
                 </p>
 
@@ -341,7 +342,7 @@ export default function HomePage(){
                   </svg>
                 </button>
                 <div className="faq-answer">
-                  <p>Our AI composers analyze your inputs (name, category, personal details) and create custom lyrics that naturally weave in the name you provide. The music is professionally produced to match your chosen category's style and emotion.</p>
+                  <p>Our composers analyze your inputs (name, category, personal details) and create custom lyrics that naturally weave in the name you provide. The music is professionally produced to match your chosen category's style and emotion.</p>
                 </div>
               </div>
 
@@ -389,7 +390,7 @@ export default function HomePage(){
                   </svg>
                 </button>
                 <div className="faq-answer">
-                  <p>Yes! Many customers create songs for different occasions and people. Each song is a separate purchase ($7.99 each), and you can create as many as you'd like. Perfect for gifting to your whole family!</p>
+                  <p>Yes! Many customers create songs for different occasions and people. Each song is a separate purchase (<PriceDisplay usdAmount={7.99} /> each), and you can create as many as you'd like. Perfect for gifting to your whole family!</p>
                 </div>
               </div>
 
@@ -425,7 +426,7 @@ export default function HomePage(){
                   </svg>
                 </button>
                 <div className="faq-answer">
-                  <p>Absolutely not! What you see is what you pay. $7.99 per song (or seasonal pricing for special categories). No subscriptions, no recurring charges, no hidden fees. One payment, lifetime access to your song.</p>
+                  <p>Absolutely not! What you see is what you pay. <PriceDisplay usdAmount={7.99} /> per song (or seasonal pricing for special categories). No subscriptions, no recurring charges, no hidden fees. One payment, lifetime access to your song.</p>
                 </div>
               </div>
             </div>
@@ -449,7 +450,7 @@ export default function HomePage(){
 
                 <a href="#create" className="btn-final">
                   <span>Start Creating</span>
-                  <span className="price-tag">$7.99</span>
+                  <span className="price-tag"><PriceDisplay usdAmount={7.99} /></span>
                 </a>
 
                 <div className="final-meta">

@@ -35,6 +35,9 @@ export default function PrivacyPage(){
                 <p>
                   Look, we collect some data (we have to), but we're not here to stalk you or sell your info to weird third parties. This policy explains what we collect, why we collect it, and what rights you have. We tried to write it in plain English instead of legalese.
                 </p>
+                <p>
+                  <em>Personalize Online is operated by PROSPERA ENTERPRISES.</em>
+                </p>
               </div>
 
               <div className="legal-section">
@@ -149,6 +152,8 @@ export default function PrivacyPage(){
                   If you have any questions about this Privacy Policy or our data practices, please contact us:
                 </p>
                 <ul>
+                  <li><strong>Business Name:</strong> PROSPERA ENTERPRISES</li>
+                  <li><strong>Brand:</strong> Personalize Online</li>
                   <li>Email: <a id="support-link" href={`mailto:${supportEmail}`}>{supportEmail}</a></li>
                   <li>Website: personalize-online.com</li>
                 </ul>

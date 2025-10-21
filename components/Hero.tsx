@@ -1,6 +1,21 @@
 "use client";
 
+import { useCurrency } from '@/lib/useCurrency';
+import { useEffect, useState } from 'react';
+
 export function Hero() {
+  const { currency, formatPrice, convertPrice, isLoading } = useCurrency();
+  const [localPrice, setLocalPrice] = useState(7.99);
+
+  useEffect(() => {
+    const updatePrice = async () => {
+      if (!isLoading && currency.code !== 'USD') {
+        const converted = await convertPrice(7.99);
+        setLocalPrice(converted);
+      }
+    };
+    updatePrice();
+  }, [currency, isLoading, convertPrice]);
   return (
     <section className="hero">
       <div className="container">
@@ -24,7 +39,7 @@ export function Hero() {
             </div>
 
             <a href="#create" className="cta-btn">
-              Make a Song – $7.99
+              Make a Song – {isLoading ? '$7.99' : formatPrice(localPrice)}
             </a>
           </div>
 
