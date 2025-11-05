@@ -11,6 +11,7 @@ export function SongCreationForm({ category }: SongCreationFormProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     age: '',
     recipientName: '',
     specificGoal: '',
@@ -27,6 +28,22 @@ export function SongCreationForm({ category }: SongCreationFormProps) {
   };
 
   const handleNext = () => {
+    // Validate Step 1 before proceeding
+    if (step === 1) {
+      // Check required fields
+      if (!formData.name.trim()) {
+        alert('Please enter your name');
+        return;
+      }
+      if (!formData.email.trim()) {
+        alert('Please enter your email address');
+        return;
+      }
+      if (formData.personalStory.length < 20) {
+        alert('Please provide at least 20 characters in your story. The more details you share, the better we can personalize your song!');
+        return;
+      }
+    }
     setStep(step + 1);
   };
 
@@ -34,39 +51,41 @@ export function SongCreationForm({ category }: SongCreationFormProps) {
     setStep(step - 1);
   };
 
-  const loadRazorpayScript = () => {
-    return new Promise((resolve) => {
-      const script = document.createElement('script');
-      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-      script.onload = () => resolve(true);
-      script.onerror = () => resolve(false);
-      document.body.appendChild(script);
-    });
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      // Load Razorpay script
-      const scriptLoaded = await loadRazorpayScript();
-      if (!scriptLoaded) {
-        alert('Failed to load payment gateway. Please try again.');
+      // Validate phone number (optional, but if provided must be valid)
+      if (formData.phone && !/^[\d\s\+\-\(\)]+$/.test(formData.phone)) {
+        alert('Please enter a valid phone number');
         setIsSubmitting(false);
         return;
       }
 
-      // Create Razorpay order
-      const orderResponse = await fetch('/api/razorpay/order', {
+      // Validate personal story length
+      if (formData.personalStory.length < 20) {
+        alert('Please provide at least 20 characters in your story');
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Create PayU order
+      const orderResponse = await fetch('/api/payu/order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           category: category.slug,
-          ...formData,
-          price: category.price,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          personalStory: formData.personalStory,
+          musicalStyle: formData.musicalStyle,
+          recipientName: formData.recipientName,
+          specificGoal: formData.specificGoal,
+          age: formData.age,
         }),
       });
 
@@ -75,67 +94,35 @@ export function SongCreationForm({ category }: SongCreationFormProps) {
         throw new Error(errorData.error || 'Failed to create order');
       }
 
-      const { orderId, amount, currency, key } = await orderResponse.json();
+      const payuData = await orderResponse.json();
 
-      // Configure Razorpay checkout options
-      const options = {
-        key: key,
-        amount: amount,
-        currency: currency,
-        name: 'Personalize Online',
-        description: `Personalized ${category.name}`,
-        order_id: orderId,
-        prefill: {
-          name: formData.name,
-          email: formData.email,
-        },
-        theme: {
-          color: '#7c8471', // Your brand color (sage)
-        },
-        handler: async function (response: any) {
-          // Payment successful, verify it
-          try {
-            const verifyResponse = await fetch('/api/razorpay/verify', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                razorpay_order_id: response.razorpay_order_id,
-                razorpay_payment_id: response.razorpay_payment_id,
-                razorpay_signature: response.razorpay_signature,
-              }),
-            });
+      if (!payuData.success) {
+        throw new Error(payuData.error || 'Payment initialization failed');
+      }
 
-            const verifyData = await verifyResponse.json();
+      // Create hidden form with PayU parameters
+      const paymentForm = document.createElement('form');
+      paymentForm.method = 'POST';
+      paymentForm.action = payuData.paymentUrl;
 
-            if (verifyData.success) {
-              // Payment verified, redirect to success page
-              window.location.href = `/success?payment_id=${response.razorpay_payment_id}`;
-            } else {
-              alert('Payment verification failed. Please contact support.');
-              setIsSubmitting(false);
-            }
-          } catch (error) {
-            console.error('Payment verification error:', error);
-            alert('Payment verification failed. Please contact support.');
-            setIsSubmitting(false);
-          }
-        },
-        modal: {
-          ondismiss: function () {
-            // User closed the payment modal
-            setIsSubmitting(false);
-          },
-        },
-      };
+      // Add all PayU parameters as hidden inputs
+      Object.entries(payuData.params).forEach(([key, value]) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = value as string;
+        paymentForm.appendChild(input);
+      });
 
-      // Open Razorpay payment modal
-      const razorpay = new (window as any).Razorpay(options);
-      razorpay.open();
+      // Append form to body and submit (redirects to PayU)
+      document.body.appendChild(paymentForm);
+      paymentForm.submit();
+
+      // User will be redirected to PayU payment page
+      // After payment, PayU will redirect back to success/failure URLs
     } catch (error) {
       console.error('Error initiating payment:', error);
-      alert('Failed to initiate payment. Please try again.');
+      alert(error instanceof Error ? error.message : 'Failed to initiate payment. Please try again.');
       setIsSubmitting(false);
     }
   };
@@ -217,6 +204,22 @@ export function SongCreationForm({ category }: SongCreationFormProps) {
                 className="form-input"
               />
               <small className="form-hint">We'll send your song here shortly after purchase</small>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="phone">
+                Phone Number <span className="optional">(optional)</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                placeholder="+1-555-123-4567 or 9876543210"
+                className="form-input"
+              />
+              <small className="form-hint">For order updates and payment confirmation (supports international formats)</small>
             </div>
 
             {/* Birthday-specific field */}
@@ -355,6 +358,10 @@ export function SongCreationForm({ category }: SongCreationFormProps) {
                 <div className="review-row">
                   <span className="review-label">Email:</span>
                   <span className="review-value">{formData.email}</span>
+                </div>
+                <div className="review-row">
+                  <span className="review-label">Phone:</span>
+                  <span className="review-value">{formData.phone}</span>
                 </div>
                 {formData.age && (
                   <div className="review-row">
@@ -498,6 +505,12 @@ export function SongCreationForm({ category }: SongCreationFormProps) {
 
         .required {
           color: #DC2626;
+        }
+
+        .optional {
+          color: #6B7280;
+          font-size: 0.875rem;
+          font-weight: normal;
         }
 
         .form-input,

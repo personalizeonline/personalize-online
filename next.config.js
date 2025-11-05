@@ -38,16 +38,15 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://checkout.razorpay.com",
-              "style-src 'self' 'unsafe-inline'",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "img-src 'self' data: https:",
-              "font-src 'self' data:",
-              "connect-src 'self' https://api.razorpay.com https://lumberjack-cx.razorpay.com",
-              "frame-src 'self' https://api.razorpay.com",
+              "font-src 'self' data: https://fonts.gstatic.com",
+              "connect-src 'self'",
+              "frame-src 'self'",
               "base-uri 'self'",
-              "form-action 'self'",
-              "frame-ancestors 'none'",
-              "upgrade-insecure-requests"
+              "form-action 'self' https://secure.payu.in https://test.payu.in https://api.payu.in",
+              "frame-ancestors 'none'"
             ].join('; ')
           }
         ]
