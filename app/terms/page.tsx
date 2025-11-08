@@ -121,16 +121,21 @@ export default function TermsPage(){
 
               <div className="legal-section" id="refunds">
                 <h2>Refund Policy (The Straight Truth)</h2>
-                <h3>⚠️ All Sales Are Final</h3>
+                <h3>24-Hour Satisfaction Guarantee</h3>
                 <p>
-                  Because these are custom digital products created instantly and delivered immediately, <strong>all sales are final</strong>. No refunds, no returns.
+                  We stand behind the quality of our personalized songs. If you're not satisfied with your song, you may request a full refund <strong>within 24 hours of receiving your completed song</strong>.
                 </p>
                 <p>
-                  Think of it like downloading any digital content—once it's delivered, that's it. We can't "un-send" a song.
+                  To request a refund, email us at <a href={`mailto:${supportEmail}`}>{supportEmail}</a> within 24 hours of delivery with your order number and reason for dissatisfaction.
                 </p>
 
-                <h3>But We'll Still Help You Out</h3>
-                <p>If you run into actual technical problems, we've got your back:</p>
+                <h3>After 24 Hours</h3>
+                <p>
+                  Refund requests must be made within 24 hours of song delivery. After this period, all sales are final as the song has been custom-created specifically for you.
+                </p>
+
+                <h3>Technical Support (Always Available)</h3>
+                <p>If you run into technical problems, we've got your back:</p>
                 <ul>
                   <li><strong>Didn't get your email?</strong> Contact us and we'll resend it</li>
                   <li><strong>File won't play?</strong> We'll help troubleshoot or send a different format</li>
@@ -138,15 +143,8 @@ export default function TermsPage(){
                   <li><strong>Payment issues?</strong> We'll sort those out</li>
                 </ul>
 
-                <h3>What We Can't Help With</h3>
-                <ul>
-                  <li>Changed your mind after ordering</li>
-                  <li>Don't like how the song turned out</li>
-                  <li>Entered the wrong name (triple-check before ordering!)</li>
-                </ul>
-
                 <p>
-                  For technical support, email us at <a href={`mailto:${supportEmail}`}>{supportEmail}</a>. We'll respond within 24 hours.
+                  For refunds or technical support, email us at <a href={`mailto:${supportEmail}`}>{supportEmail}</a>. We'll respond within 24 hours.
                 </p>
               </div>
 
