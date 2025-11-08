@@ -1,5 +1,6 @@
 "use client";
 import { Category } from '@/lib/categories';
+import { PriceDisplay } from '@/components/PriceDisplay';
 import { useState } from 'react';
 
 interface SeasonalHeroProps {
@@ -157,7 +158,7 @@ export function SeasonalHero({ category }: SeasonalHeroProps) {
                   <span className="btn-bg-pattern"></span>
                   <span className="btn-content-luxe">
                     <span className="btn-text-luxe">Create Their Song Now</span>
-                    <span className="btn-price-luxe">Just ${category.price}</span>
+                    <span className="btn-price-luxe">Just <PriceDisplay usdAmount={category.price} /></span>
                   </span>
                   <span className="btn-sparkle"></span>
                 </a>
@@ -1471,7 +1472,7 @@ export function SeasonalHero({ category }: SeasonalHeroProps) {
                   <span className="btn-bg-v"></span>
                   <span className="btn-content-v">
                     <span className="btn-text-v">Create Your Love Song</span>
-                    <span className="btn-price-v">Just ${category.price}</span>
+                    <span className="btn-price-v">Just <PriceDisplay usdAmount={category.price} /></span>
                   </span>
                   <span className="btn-shine-v"></span>
                 </a>
@@ -2324,7 +2325,7 @@ export function SeasonalHero({ category }: SeasonalHeroProps) {
                   <span className="btn-bg-m"></span>
                   <span className="btn-content-m">
                     <span className="btn-text-m">Create Her Tribute Song</span>
-                    <span className="btn-price-m">Just ${category.price}</span>
+                    <span className="btn-price-m">Just <PriceDisplay usdAmount={category.price} /></span>
                   </span>
                   <span className="btn-sparkle-m"></span>
                 </a>
@@ -3271,7 +3272,7 @@ export function SeasonalHero({ category }: SeasonalHeroProps) {
                   <span className="btn-bg-f"></span>
                   <span className="btn-content-f">
                     <span className="btn-text-f">Create His Tribute Song</span>
-                    <span className="btn-price-f">Just ${category.price}</span>
+                    <span className="btn-price-f">Just <PriceDisplay usdAmount={category.price} /></span>
                   </span>
                   <span className="btn-sparkle-f"></span>
                 </a>
@@ -4221,7 +4222,7 @@ export function SeasonalHero({ category }: SeasonalHeroProps) {
                   <span className="btn-bg-g"></span>
                   <span className="btn-content-g">
                     <span className="btn-text-g">Create Their Victory Song</span>
-                    <span className="btn-price-g">Just ${category.price}</span>
+                    <span className="btn-price-g">Just <PriceDisplay usdAmount={category.price} /></span>
                   </span>
                   <span className="btn-sparkle-g"></span>
                 </a>
@@ -5180,7 +5181,7 @@ export function SeasonalHero({ category }: SeasonalHeroProps) {
                   <div className="btn-bg-t"></div>
                   <div className="btn-content-t">
                     <span className="btn-text-t">Create My Gratitude Song</span>
-                    <span className="btn-price-t">${category.price}</span>
+                    <span className="btn-price-t"><PriceDisplay usdAmount={category.price} /></span>
                   </div>
                   <div className="btn-shine-t"></div>
                 </a>
@@ -5210,7 +5211,7 @@ export function SeasonalHero({ category }: SeasonalHeroProps) {
               {/* Price Comparison */}
               <p className="thanksgiving-price-note">
                 💰 Compare: Hallmark cards ($8), dinner centerpiece ($25), family photos ($100+)<br/>
-                Your personalized song: <strong>${category.price}</strong> – infinite memories
+                Your personalized song: <strong><PriceDisplay usdAmount={category.price} /></strong> – infinite memories
               </p>
             </div>
 
@@ -6206,7 +6207,7 @@ export function SeasonalHero({ category }: SeasonalHeroProps) {
                   <div className="btn-bg-ny"></div>
                   <div className="btn-content-ny">
                     <span className="btn-text-ny">Create My Resolution Anthem</span>
-                    <span className="btn-price-ny">${category.price}</span>
+                    <span className="btn-price-ny"><PriceDisplay usdAmount={category.price} /></span>
                   </div>
                   <div className="btn-shine-ny"></div>
                 </a>
@@ -6236,7 +6237,7 @@ export function SeasonalHero({ category }: SeasonalHeroProps) {
               {/* Price Comparison */}
               <p className="newyear-price-note">
                 💰 Compare: Gym membership ($50/mo), life coach ($200/session), vision board kit ($30)<br/>
-                Your personalized anthem: <strong>${category.price}</strong> – motivation for life
+                Your personalized anthem: <strong><PriceDisplay usdAmount={category.price} /></strong> – motivation for life
               </p>
             </div>
 
@@ -7100,7 +7101,7 @@ export function SeasonalHero({ category }: SeasonalHeroProps) {
           <p className="hero-subheadline">{category.subheadline}</p>
           <div className="hero-cta">
             <a href={`/${category.slug}`} className="btn-hero">
-              Create {category.name} – ${category.price}
+              Create {category.name} – <PriceDisplay usdAmount={category.price} />
             </a>
           </div>
         </div>

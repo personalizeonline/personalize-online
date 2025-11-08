@@ -31,33 +31,34 @@ export default function RefundPolicyPage(){
 
             <div className="legal-content">
               <div className="legal-section">
-                <div className="disclaimer-box" style={{background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(245, 158, 11, 0.1))', border: '2px solid #ef4444', padding: '24px', borderRadius: '12px', marginBottom: '32px'}}>
-                  <h2 style={{color: '#ef4444', marginTop: 0, marginBottom: '12px', fontSize: '1.5rem'}}>⚠️ ALL SALES ARE FINAL - NO REFUNDS</h2>
+                <div className="disclaimer-box" style={{background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1))', border: '2px solid #10b981', padding: '24px', borderRadius: '12px', marginBottom: '32px'}}>
+                  <h2 style={{color: '#10b981', marginTop: 0, marginBottom: '12px', fontSize: '1.5rem'}}>✅ 24-Hour Satisfaction Guarantee</h2>
                   <p style={{fontSize: '1.1rem', fontWeight: '600', marginBottom: '12px'}}>
-                    Due to the instant, custom nature of our digital products, we do not offer refunds,
-                    exchanges, or cancellations once a song has been created and delivered.
+                    We stand behind the quality of our personalized songs. If you're not satisfied with your song,
+                    you may request a full refund within 24 hours of receiving your completed song.
                   </p>
                   <p style={{marginBottom: 0}}>
-                    By placing an order with Personalize Online, you acknowledge and agree to this no-refund policy.
+                    After 24 hours, all sales are final as the song has been custom-created specifically for you.
                   </p>
                 </div>
               </div>
 
               <div className="legal-section">
-                <h2>Why We Don't Offer Refunds</h2>
+                <h2>How Our 24-Hour Guarantee Works</h2>
                 <p>
                   Personalize Online creates custom songs based on your specific inputs (name, category, personal details).
                   Each song is:
                 </p>
                 <ul>
-                  <li><strong>Instantly Generated:</strong> Created based on your personalization</li>
+                  <li><strong>Professionally Created:</strong> Crafted based on your personalization</li>
                   <li><strong>Unique to You:</strong> Includes your name in the lyrics and is tailored to your story</li>
-                  <li><strong>Immediately Delivered:</strong> Sent to your email as soon as it's ready</li>
-                  <li><strong>Non-Returnable Digital Product:</strong> Like other custom digital content, it cannot be "returned"</li>
+                  <li><strong>Delivered Within 24-48 Hours:</strong> Sent to your email once completed</li>
+                  <li><strong>Custom Digital Product:</strong> Created specifically for you based on your details</li>
                 </ul>
                 <p>
-                  Once a song is generated and delivered, it is yours to keep. We cannot "undo" the creation or
-                  delivery of your personalized content.
+                  You have 24 hours from the time you receive your completed song to review it and request a refund if
+                  you're not satisfied. To request a refund, email us at <a href={`mailto:${supportEmail}`}>{supportEmail}</a> within
+                  24 hours of delivery with your order number and reason for dissatisfaction.
                 </p>
               </div>
 
@@ -126,18 +127,20 @@ export default function RefundPolicyPage(){
               </div>
 
               <div className="legal-section">
-                <h2>What Is NOT Eligible</h2>
+                <h2>After the 24-Hour Window</h2>
                 <p>
-                  The following are <strong>NOT</strong> grounds for refunds or exceptions:
+                  Refund requests must be made within 24 hours of receiving your completed song. After this period, all sales are final.
+                  This includes:
                 </p>
                 <ul>
-                  <li><strong>Dissatisfaction with Style:</strong> "I don't like the way it sounds" or "It's not what I expected"</li>
-                  <li><strong>Change of Mind:</strong> "I decided I don't want it anymore" or "I ordered by mistake"</li>
-                  <li><strong>Spelling Errors:</strong> Mistakes in the name or details you provided during checkout</li>
-                  <li><strong>Wrong Category:</strong> You selected Birthday but wanted Manifestation</li>
-                  <li><strong>Quality Preferences:</strong> "I wanted it to sound different" or "The voice isn't perfect"</li>
-                  <li><strong>Buyer's Remorse:</strong> Any reason after the song has been delivered</li>
+                  <li><strong>After 24 Hours:</strong> No refunds available regardless of reason</li>
+                  <li><strong>Spelling Errors:</strong> Please review your details carefully before ordering</li>
+                  <li><strong>Wrong Category:</strong> Double-check your category selection during checkout</li>
+                  <li><strong>Change of Mind:</strong> Must be requested within the 24-hour window</li>
                 </ul>
+                <p>
+                  The 24-hour window begins when your completed song is delivered to your email, not when you place the order.
+                </p>
               </div>
 
               <div className="legal-section">
@@ -157,16 +160,18 @@ export default function RefundPolicyPage(){
               </div>
 
               <div className="legal-section">
-                <h2>Multi-Song Packages</h2>
+                <h2>How to Request a Refund</h2>
                 <p>
-                  If you purchase a multi-song package (3 songs or 10 songs), the no-refund policy applies to
-                  the entire package, even if you've only created one song. We recommend:
+                  To request a refund within the 24-hour window, contact us at <a href={`mailto:${supportEmail}`}>{supportEmail}</a> with:
                 </p>
                 <ul>
-                  <li>Starting with a single song to test the service first</li>
-                  <li>Only purchasing bundles if you're confident you'll use all the credits</li>
-                  <li>Remembering that all song credits can be used over time (they don't expire)</li>
+                  <li>Your order number or email used for purchase</li>
+                  <li>Reason for dissatisfaction</li>
+                  <li>Confirmation that you're within 24 hours of receiving the song</li>
                 </ul>
+                <p>
+                  We will process approved refunds within 5-7 business days to the original payment method.
+                </p>
               </div>
 
               <div className="legal-section">
@@ -205,7 +210,8 @@ export default function RefundPolicyPage(){
                 <h2>Agreement</h2>
                 <p>
                   By using Personalize Online and placing an order, you confirm that you have read, understood,
-                  and agree to this Refund Policy. This policy is part of our <a href="/terms">Terms of Service</a>.
+                  and agree to this 24-Hour Refund Policy. Refunds must be requested within 24 hours of receiving
+                  your completed song. This policy is part of our <a href="/terms">Terms of Service</a>.
                 </p>
               </div>
             </div>

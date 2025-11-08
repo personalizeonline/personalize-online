@@ -112,10 +112,10 @@ export default function TermsPage(){
                 <h2>Pricing & Payments</h2>
                 <h3>How It Works</h3>
                 <ul>
-                  <li>Each song is a one-time purchase ($7.99 per song, or as priced for seasonal categories)</li>
+                  <li>Each song is a one-time purchase (prices vary by category)</li>
                   <li>Pay once, keep forever—no subscriptions or recurring charges</li>
-                  <li>Payment processing is handled securely through Stripe</li>
-                  <li>You'll receive your MP3 via email within minutes of purchase</li>
+                  <li>Payment processing is handled securely through our payment gateway</li>
+                  <li>You'll receive your MP3 via email within 24-48 hours of purchase</li>
                 </ul>
               </div>
 

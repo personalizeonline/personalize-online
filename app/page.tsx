@@ -136,9 +136,9 @@ export default function HomePage(){
           <div className="container">
             <div className="section-header-natural">
               <span className="eyebrow">Simple Process</span>
-              <h2 className="title-handwritten">Three steps to your song</h2>
+              <h2 className="title-handwritten">How it works</h2>
               <p className="subtitle-natural">
-                No hassle. No waiting. Just pure musical magic.
+                Share your story, we create your song. Delivered in 24-48 hours.
               </p>
             </div>
 
@@ -164,8 +164,8 @@ export default function HomePage(){
                 </div>
                 <div className="step-info">
                   <span className="step-label">Step 2</span>
-                  <h3>Add the Name</h3>
-                  <p>Type any name. We weave it beautifully into the lyrics.</p>
+                  <h3>Share Your Details</h3>
+                  <p>Add name, story, and musical style preferences. The more details, the better your song!</p>
                 </div>
               </div>
 
@@ -176,8 +176,8 @@ export default function HomePage(){
                 </div>
                 <div className="step-info">
                   <span className="step-label">Step 3</span>
-                  <h3>Receive & Share</h3>
-                  <p>Get your high-quality MP3 in minutes. Yours to keep forever.</p>
+                  <h3>Pay & Receive</h3>
+                  <p>Complete secure payment. Your professionally crafted MP3 arrives within 24-48 hours via email.</p>
                 </div>
               </div>
             </div>
@@ -246,8 +246,8 @@ export default function HomePage(){
                       <polyline points="12 6 12 12 16 14"/>
                     </svg>
                   </div>
-                  <h4>Instant Delivery</h4>
-                  <p>In your inbox within minutes. Perfect for those "oh no, I forgot!" moments.</p>
+                  <h4>Fast Delivery</h4>
+                  <p>Professionally crafted and delivered within 24-48 hours. Worth the wait for quality!</p>
                 </div>
 
                 <div className="feature-card-natural">
@@ -378,7 +378,7 @@ export default function HomePage(){
                   </svg>
                 </button>
                 <div className="faq-answer">
-                  <p>Most songs are delivered within minutes to the email you provide at checkout. Check your inbox (and spam folder just in case!) shortly after purchase. If you don't receive it, contact our support team.</p>
+                  <p>Your personalized song will be professionally crafted and delivered within 24-48 hours to the email you provide at checkout. Each song is custom-created by our team, which requires time for quality production. Check your inbox (and spam folder) after 24-48 hours. If you don't receive it, contact our support team.</p>
                 </div>
               </div>
 
@@ -402,7 +402,7 @@ export default function HomePage(){
                   </svg>
                 </button>
                 <div className="faq-answer">
-                  <p>All sales are final due to the instant, custom nature of digital products. However, if you experience technical issues (file won't play, didn't receive email, payment errors, etc.), contact our support team and we'll resolve it promptly. We're here to help!</p>
+                  <p>We offer a 24-hour satisfaction guarantee. If you're not happy with your song, you can request a full refund within 24 hours of receiving it. After 24 hours, all sales are final. For technical issues (file won't play, didn't receive email, payment errors), contact our support team anytime and we'll resolve it promptly!</p>
                 </div>
               </div>
 
@@ -454,7 +454,7 @@ export default function HomePage(){
                 </a>
 
                 <div className="final-meta">
-                  <span>⚡ Delivered in minutes</span>
+                  <span>⚡ Delivered in 24-48 hours</span>
                   <span>•</span>
                   <span>💝 Perfect for gifting</span>
                   <span>•</span>

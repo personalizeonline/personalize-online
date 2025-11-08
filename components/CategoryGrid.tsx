@@ -31,7 +31,7 @@ export function CategoryGrid({ categories }: CategoryGridProps) {
     updatePrices();
   }, [categories, currency, isLoading, convertPrice]);
   return (
-    <section className="category-grid-section">
+    <section id="create" className="category-grid-section">
       <div className="container">
         <div className="section-header">
           <div className="header-badge">

@@ -74,7 +74,7 @@ export function Pricing(){
             </a>
             <div className="trust-badges">
               <span className="trust-item">🔒 Secure Checkout</span>
-              <span className="trust-item">⚡ Instant Delivery</span>
+              <span className="trust-item">⚡ 24-48 Hour Delivery</span>
             </div>
           </div>
 

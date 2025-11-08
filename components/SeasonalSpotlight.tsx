@@ -1,5 +1,6 @@
 "use client";
 import { Category } from '@/lib/categories';
+import { PriceDisplay } from '@/components/PriceDisplay';
 
 interface SeasonalSpotlightProps {
   categories: Category[];
@@ -22,7 +23,7 @@ export function SeasonalSpotlight({ categories }: SeasonalSpotlightProps) {
               <div className="spotlight-icon">{category.icon}</div>
               <h3 className="spotlight-name">{category.name}</h3>
               <p className="spotlight-description">{category.description}</p>
-              <div className="spotlight-price">${category.price}</div>
+              <div className="spotlight-price"><PriceDisplay usdAmount={category.price} /></div>
               <a
                 href={`/${category.slug}`}
                 className="btn btn-primary"
