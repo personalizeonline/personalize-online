@@ -41,6 +41,15 @@ export function usdToInrPaise(usdAmount: number): number {
 }
 
 /**
+ * Convert USD to INR for PayU (synchronous, uses fallback rate)
+ * @param usdAmount Amount in USD (e.g., 7.99)
+ * @returns Amount in INR (e.g., 667.165)
+ */
+export function usdToInr(usdAmount: number): number {
+  return usdAmount * FALLBACK_USD_TO_INR_RATE;
+}
+
+/**
  * Convert USD to any currency
  * @param usdAmount Amount in USD
  * @param targetCurrency Target currency code
