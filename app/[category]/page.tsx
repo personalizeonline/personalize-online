@@ -170,11 +170,11 @@ export default function CategoryPage() {
                 <div className="hero-cta-group">
                   <a href="#create" className="btn-hero-primary">
                     <span className="btn-text">Make My Song</span>
-                    <span className="btn-price">${category.price}</span>
+                    <span className="btn-price"><PriceDisplay usdAmount={category.price} /></span>
                   </a>
                   <div className="cta-trust">
                     <span className="trust-icon">✓</span>
-                    <span>Ships in minutes • Keep forever</span>
+                    <span>Delivered in 24-48 hours • Keep forever</span>
                   </div>
                 </div>
               </div>
@@ -626,8 +626,8 @@ export default function CategoryPage() {
               </div>
               <div className="benefit-item">
                 <div className="benefit-icon">⚡</div>
-                <h3>Inbox in Minutes</h3>
-                <p>Order now, check your email in a few. High-quality MP3, ready to blast.</p>
+                <h3>Fast Delivery</h3>
+                <p>Order now, get your professionally crafted MP3 in 24-48 hours. High-quality, ready to share.</p>
               </div>
               <div className="benefit-item">
                 <div className="benefit-icon">♾️</div>
@@ -685,16 +685,16 @@ export default function CategoryPage() {
         <section className="how-it-works-section">
           <div className="container">
             <div className="section-header-centered">
-              <h2>The Whole Process</h2>
-              <p>Three steps. Takes like two minutes, max.</p>
+              <h2>How It Works</h2>
+              <p>Order now, receive your professionally crafted song in 24-48 hours.</p>
             </div>
 
             <div className="steps-grid">
               <div className="step-item">
                 <div className="step-number">1</div>
                 <div className="step-icon">📝</div>
-                <h3>Type a Name</h3>
-                <p>Whose name do you want in the song? That's literally it.</p>
+                <h3>Share Your Story</h3>
+                <p>Tell us the name, occasion, and details you want in your custom song.</p>
               </div>
 
               <div className="step-arrow">→</div>
@@ -702,8 +702,8 @@ export default function CategoryPage() {
               <div className="step-item">
                 <div className="step-number">2</div>
                 <div className="step-icon">💳</div>
-                <h3>Pay the <PriceDisplay usdAmount={7.99} /></h3>
-                <p>Secure checkout. Stripe handles it. Takes 30 seconds.</p>
+                <h3>Complete Payment</h3>
+                <p>Secure checkout. Your order begins production immediately after payment.</p>
               </div>
 
               <div className="step-arrow">→</div>
@@ -711,8 +711,8 @@ export default function CategoryPage() {
               <div className="step-item">
                 <div className="step-number">3</div>
                 <div className="step-icon">🎵</div>
-                <h3>Check Your Email</h3>
-                <p>Download your MP3. Play it loud. Show everyone. Keep it forever.</p>
+                <h3>Receive Your Song</h3>
+                <p>Get your professionally crafted MP3 via email in 24-48 hours. Yours forever!</p>
               </div>
             </div>
           </div>
@@ -1067,7 +1067,7 @@ export default function CategoryPage() {
                 </div>
                 <div className={`faq-answer ${openFaqIndex === 0 ? 'open' : ''}`}>
                   <p>
-                    Check your email in a few minutes. That's it. High-quality MP3, ready to download. (Check spam if you don't see it right away.)
+                    Your professionally crafted song will arrive in your email within 24-48 hours. High-quality MP3, ready to download. (Check spam folder if you don't see it after 48 hours.)
                   </p>
                 </div>
               </button>

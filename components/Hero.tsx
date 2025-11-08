@@ -33,9 +33,9 @@ export function Hero() {
             </p>
 
             <div className="quick-features">
-              <span className="quick-feature">🎼 Sounds legit</span>
+              <span className="quick-feature">🎼 Studio quality</span>
               <span className="quick-feature">💝 Theirs to keep</span>
-              <span className="quick-feature">⚡ Ships in minutes</span>
+              <span className="quick-feature">⚡ 24-48 hour delivery</span>
             </div>
 
             <a href="#create" className="cta-btn">

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
 import type { Category } from '@/lib/categories';
+import { PriceDisplay } from '@/components/PriceDisplay';
 
 interface SongCreationFormProps {
   category: Category;
@@ -174,7 +175,7 @@ export function SongCreationForm({ category }: SongCreationFormProps) {
 
             <div className="form-group">
               <label htmlFor="name">
-                Your Name <span className="required">*</span>
+                Name to Include in Lyrics <span className="required">*</span>
               </label>
               <input
                 type="text"
@@ -182,11 +183,11 @@ export function SongCreationForm({ category }: SongCreationFormProps) {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                placeholder="The name you want in the lyrics"
+                placeholder="e.g., Sarah, Michael, Mom, Dad"
                 required
                 className="form-input"
               />
-              <small className="form-hint">This name will be woven into your song lyrics</small>
+              <small className="form-hint">This name will be included in the song lyrics (for yourself or as a gift)</small>
             </div>
 
             <div className="form-group">
@@ -203,7 +204,7 @@ export function SongCreationForm({ category }: SongCreationFormProps) {
                 required
                 className="form-input"
               />
-              <small className="form-hint">We'll send your song here shortly after purchase</small>
+              <small className="form-hint">We'll send your song here within 24-48 hours after payment</small>
             </div>
 
             <div className="form-group">
@@ -219,7 +220,7 @@ export function SongCreationForm({ category }: SongCreationFormProps) {
                 placeholder="+1-555-123-4567 or 9876543210"
                 className="form-input"
               />
-              <small className="form-hint">For order updates and payment confirmation (supports international formats)</small>
+              <small className="form-hint">For payment verification only. Song delivery is via email. (Supports international formats)</small>
             </div>
 
             {/* Birthday-specific field */}
@@ -344,7 +345,7 @@ export function SongCreationForm({ category }: SongCreationFormProps) {
                 <div className="review-icon">{category.icon}</div>
                 <div>
                   <h4>{category.name}</h4>
-                  <p className="review-price">${category.price}</p>
+                  <p className="review-price"><PriceDisplay usdAmount={category.price} /></p>
                 </div>
               </div>
 
@@ -406,13 +407,15 @@ export function SongCreationForm({ category }: SongCreationFormProps) {
                 ← Back
               </button>
               <button type="submit" className="btn btn-primary btn-large" disabled={isSubmitting}>
-                {isSubmitting ? 'Creating Checkout...' : `Create My Song - $${category.price} →`}
+                {isSubmitting ? 'Creating Checkout...' : (
+                  <>Create My Song - <PriceDisplay usdAmount={category.price} /> →</>
+                )}
               </button>
             </div>
 
             <p className="disclaimer">
-              ⚠️ All sales are final - no refunds. By proceeding, you agree to our{' '}
-              <a href="/terms">Terms of Service</a> and <a href="/refund-policy">Refund Policy</a>.
+              ⚠️ 24-hour satisfaction guarantee (starts when you receive your song). By proceeding, you agree to our{' '}
+              <a href="/terms">Terms of Service</a> and <a href="/terms#refunds">Refund Policy</a>.
             </p>
           </div>
         )}

@@ -44,14 +44,14 @@ function SuccessContent() {
                     <div className="timeline-icon">⚡</div>
                     <div className="timeline-content">
                       <h3>Now</h3>
-                      <p>We're composing your unique song</p>
+                      <p>Your order is confirmed! We're starting production on your custom song</p>
                     </div>
                   </div>
                   <div className="timeline-item">
                     <div className="timeline-icon">📧</div>
                     <div className="timeline-content">
-                      <h3>Within 2-3 Minutes</h3>
-                      <p>Check your email for your personalized song</p>
+                      <h3>Within 24-48 Hours</h3>
+                      <p>Your professionally crafted song will arrive in your email inbox</p>
                     </div>
                   </div>
                   <div className="timeline-item">
@@ -64,9 +64,9 @@ function SuccessContent() {
                 </div>
 
                 <div className="email-reminder">
-                  <strong>📬 Check your email inbox</strong>
-                  <p>Your song will arrive at the email address you provided during checkout.</p>
-                  <p><small>Don't see it? Check your spam folder or wait a few minutes.</small></p>
+                  <strong>📬 Watch your email inbox</strong>
+                  <p>Your custom song will arrive at the email address you provided within 24-48 hours.</p>
+                  <p><small>You'll receive an order confirmation shortly. Your completed song follows within 24-48 hours.</small></p>
                 </div>
               </div>
 
