@@ -1,6 +1,7 @@
 import './globals.css';
 import './natural-styles.css';
 import type { Metadata, Viewport } from 'next';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: 'Personalize Online — Personalized Songs for Peace, Healing & Gratitude',
@@ -28,7 +29,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
